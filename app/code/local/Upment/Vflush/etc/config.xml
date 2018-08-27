@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Upment_Vflush>
+      <version>1.0.0</version>
+    </Upment_Vflush>
+  </modules>
+  <global>
+    <helpers>
+      <upment_vflush>
+        <class>Upment_Vflush_Helper</class>
+      </upment_vflush>
+      <Vflush>
+        <class>Upment_Vflush_Helper</class>
+      </Vflush>
+    </helpers>
+    <blocks>
+      <upment_vflush>
+        <class>Upment_Vflush_Block</class>
+      </upment_vflush>
+    </blocks>
+  </global>
+  <admin>
+    <routers>
+      <adminhtml>
+        <args>
+          <modules>
+            <vflush before="Mage_Adminhtml">Upment_Vflush_Adminhtml</vflush>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+  <adminhtml>
+		<menu>
+			<upment translate="title" module="upment_vflush">
+        <title>Upment</title>
+        <sort_order>60</sort_order>
+				<children>
+					<upment_vflush translate="title" module="upment_vflush">
+						<title>Flush Pages from Varnish</title>
+						<action>adminhtml/vflush_list</action>
+					</upment_vflush>
+				</children>
+			</upment>
+		</menu>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <menu1 translate="title" module="upment_vflush">
+              <title>Upment</title>
+              <sort_order>60</sort_order>
+              <children>
+                <upment_vflush>
+                  <title>Flush Pages from Varnish</title>
+                </upment_vflush>
+              </children>
+            </menu1>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+	</adminhtml>
+</config>
